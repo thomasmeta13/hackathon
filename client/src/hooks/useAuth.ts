@@ -1,11 +1,18 @@
-// Integration: blueprint:javascript_log_in_with_replit
-import { useQuery } from "@tanstack/react-query";
+// Mock authentication for frontend-only deployment
+import { useState, useEffect } from "react";
 
 export function useAuth() {
-  const { data: user, isLoading } = useQuery({
-    queryKey: ["/api/auth/user"],
-    retry: false,
-  });
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if user is in localStorage (for demo purposes)
+    const storedUser = localStorage.getItem('htw-user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setIsLoading(false);
+  }, []);
 
   return {
     user,

@@ -5,12 +5,28 @@ import { Trophy, Users, Target, Calendar } from "lucide-react";
 
 export default function Login() {
   const handleOrganizationLogin = () => {
-    // Direct navigation to organization onboarding
+    // Set user in localStorage and navigate to organization onboarding
+    const user = {
+      id: 'org-' + Date.now(),
+      role: 'organizer',
+      email: 'org@htw2025.com',
+      firstName: 'Organization',
+      lastName: 'User'
+    };
+    localStorage.setItem('htw-user', JSON.stringify(user));
     window.location.href = "/onboarding/organization";
   };
 
   const handleTaskerLogin = () => {
-    // Direct navigation to tasker onboarding
+    // Set user in localStorage and navigate to tasker onboarding
+    const user = {
+      id: 'tasker-' + Date.now(),
+      role: 'tasker',
+      email: 'tasker@htw2025.com',
+      firstName: 'Tasker',
+      lastName: 'User'
+    };
+    localStorage.setItem('htw-user', JSON.stringify(user));
     window.location.href = "/onboarding/tasker";
   };
 

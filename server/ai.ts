@@ -58,7 +58,7 @@ Short answer + question. That's it.
 JSON: {"response": "short answer here"}`;
 
     const completion = await openai.chat.completions.create({
-  ok 
+  ok how do 
       model: "gpt-3.5-turbo", // Using GPT-3.5 for more concise responses
       messages: [
         {

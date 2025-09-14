@@ -4,46 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Trophy, Users, Target, Calendar } from "lucide-react";
 
 export default function Login() {
-  const handleOrganizationLogin = async () => {
-    // Mock login as organizer
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ role: 'organizer' }),
-      });
-
-      if (response.ok) {
-        window.location.href = "/onboarding/organization";
-      } else {
-        console.error('Login failed');
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-    }
+  const handleOrganizationLogin = () => {
+    // Direct navigation to organization onboarding
+    window.location.href = "/onboarding/organization";
   };
 
-  const handleTaskerLogin = async () => {
-    // Mock login as tasker
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ role: 'tasker' }),
-      });
-
-      if (response.ok) {
-        window.location.href = "/onboarding/tasker";
-      } else {
-        console.error('Login failed');
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-    }
+  const handleTaskerLogin = () => {
+    // Direct navigation to tasker onboarding
+    window.location.href = "/onboarding/tasker";
   };
 
   return (

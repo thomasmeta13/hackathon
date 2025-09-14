@@ -375,16 +375,16 @@ export function QuestExecution({ task, onComplete }: QuestExecutionProps) {
           </Card>
 
           {/* Chat */}
-          <Card className="h-96 flex flex-col">
-            <CardHeader>
+          <Card className="flex flex-col" style={{ height: '500px' }}>
+            <CardHeader className="flex-shrink-0">
               <CardTitle className="flex items-center gap-2">
                 <Bot className="h-5 w-5" />
                 Chat with AI Creator
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex-1 flex flex-col p-0">
+            <CardContent className="flex-1 flex flex-col p-0 min-h-0">
               {/* Messages */}
-              <div className="flex-1 overflow-hidden">
+              <div className="flex-1 overflow-hidden min-h-0">
                 <ScrollArea className="h-full">
                   <div className="p-4 space-y-4">
                     {chatMessages.map((message) => (
@@ -439,13 +439,13 @@ export function QuestExecution({ task, onComplete }: QuestExecutionProps) {
               </div>
               
               {/* Input */}
-              <div className="p-4 border-t">
+              <div className="flex-shrink-0 p-4 border-t bg-background">
                 <div className="flex gap-2">
                   <Textarea
                     placeholder="Provide feedback on the image... (e.g., 'Make it more colorful', 'Add more text', 'Change the layout')"
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
-                    className="min-h-[60px] resize-none"
+                    className="min-h-[60px] max-h-[120px] resize-none"
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' && !e.shiftKey) {
                         e.preventDefault();
@@ -456,7 +456,7 @@ export function QuestExecution({ task, onComplete }: QuestExecutionProps) {
                   <Button
                     onClick={handleSendMessage}
                     disabled={isGenerating || !userInput.trim()}
-                    className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
+                    className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 flex-shrink-0"
                   >
                     {isGenerating ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
